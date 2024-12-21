@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Moulpali&display=swap">
+    <title>Magic button</title>
+</head>
+
+<body>
+    <h1 id="h1"> ប៊ូតុងវេទមន្ត</h1>
+    <div id="boxcover"> ដាក់CURSORលើផ្ទៃនេះ
+        <div id="box">
+            <div>
+                <button id="btnplus">+</button>
+                <button id="btnminus">-</button>
+                <span id="num">01</span>
+                <button id="btnreset">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const plus = document.querySelector("#btnplus");
+        const minus = document.querySelector("#btnminus");
+        const number = document.querySelector("#num");
+        const reset = document.querySelector("#btnreset")
+        let a = 1;
+
+        function adjustFontSize() {
+            let newSize = 15 + (a - 1) * 1;
+            newSize = Math.min(newSize, 80);
+            number.style.fontSize = newSize + "px";
+        }
+        plus.addEventListener("click", function () {
+            a++;
+            a = (a < 10) ? "0" + a : a;
+            number.textContent = a; adjustFontSize();
+        });
+        minus.addEventListener("click", function () {
+            if (a > 1) {
+                a--;
+                a = (a < 10) ? "0" + a : a;
+                number.textContent = a; adjustFontSize();
+            }
+        })
+        reset.addEventListener("click", function () {
+            a = 1;
+            a = (a < 10) ? "0" + a : a;
+            number.textContent = a; adjustFontSize();
+        });
+
+    </script>
+</body>
+
+</html>
+
+</html>
